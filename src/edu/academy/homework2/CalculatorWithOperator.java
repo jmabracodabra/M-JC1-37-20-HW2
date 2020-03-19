@@ -7,30 +7,55 @@ public class CalculatorWithOperator {
         return c;
     }
 
-    public double multiplication (double a, double b){
+    public double multiplication(double a, double b) {
         double d = a * b;
         return d;
     }
 
-    public double subtraction(double a, double b){
+    public double subtraction(double a, double b) {
         double e = a - b;
         return e;
     }
-    public double addition(double a, double b){
+
+    public double addition(double a, double b) {
         double f = a + b;
         return f;
     }
-    public double power(double a, double b){
-        double c = Math.pow(a, b);
+
+    public double power(double a, double b) {
+
+        if (b == 0) {
+            return 1;
+        }
+
+        double c = a;
+        for (int i = 1; i < this.absolute(b); i++) {
+            c = c * a;
+        }
+        if (b < 0) {
+            return 1 / c;
+        }
         return c;
     }
-    public double absolute(double a){
-        double c = Math.abs(a);
-        return c;
+
+    public double absolute(double a) {
+        if (a < 0) {
+            return -a;
+        } else {
+            return a;
+        }
     }
-    public double root(double a){
-        double c = Math.sqrt(a);
-        return c;
+
+    public double root(double a) {
+        double temp;
+        double sqRoot = a / 2;
+        do {
+            temp = sqRoot;
+            sqRoot = (temp + (a / temp)) / 2;
+        } while ((temp - sqRoot) != 0);
+
+        return sqRoot;
+
     }
 
 }

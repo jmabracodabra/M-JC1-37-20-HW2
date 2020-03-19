@@ -15,6 +15,5 @@ public class CalculatorWithOperatorMain {
 
         double r1 = calc.addition(calc.power(calc.division(28, 5), 2), calc.addition(4.1, calc.multiplication(15, 7)));
         System.out.println(r1);
-
     }
 }
